@@ -22,6 +22,9 @@ import {
 } from "react-router-dom";
 
 export default function App() {
+  axios.defaults.headers.common['Content-Type'] = 'application/json';
+  axios.defaults.headers.common['Accept'] = 'application/json';
+
   return (
     <Router>
       <CssBaseline />
@@ -52,7 +55,7 @@ export default function App() {
           <Route path="/confirmation_email_sent">
             <ConfirmationEmailSent />
           </Route>
-          <Route path="/users/confirmation">
+          <Route path="/confirm_email">
             <EmailConfirmation />
           </Route>
         </Switch>

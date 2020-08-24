@@ -29,7 +29,7 @@ export default function EmailConfirmation() {
   }, [user])
 
 	useEffect(() => {
-		axios.get(location.pathname + location.search)
+		axios.get("/users/confirmation" + location.search)
 		.then(() => history.push("/?message=Email confirmed! Please log in."))
 		.catch(error => {
 			const errorData = error.response.data
@@ -40,7 +40,7 @@ export default function EmailConfirmation() {
 				setError(`Confirmation token ${errorData.confirmation_token}`)
 			}
 		});
-	});
+	}, []);
 
 	return (
 	  <Container component="main" maxWidth="sm">
