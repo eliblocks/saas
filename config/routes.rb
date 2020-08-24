@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+	devise_scope :users do
+		get "/users/confirmations", to: "devise/confirmations#show", as: :user_confirmation
+	end
+
   devise_for :users, defaults: { format: :json }
 
   namespace :api, defaults: { format: :json } do

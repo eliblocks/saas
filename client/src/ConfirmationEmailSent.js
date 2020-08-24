@@ -19,7 +19,7 @@ export default function ConfirmationEmailSent() {
 	  <Container component="main" maxWidth="sm">
 	  	<div className={classes.paper}>
 	  		<Typography variant="h6">
-	  			Signup Successful! You will recive an email confirmation shortly.
+					Signup Successful! You will receive an email confirmation shortly.
 	  		</Typography>
 	  	</div>
 	  </Container>
