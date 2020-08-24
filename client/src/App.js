@@ -1,65 +1,62 @@
+import axios from 'axios';
 import React, { useState, useEffect } from "react";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import useUser from './use-user';
+import Navbar from './Navbar'
+import LogIn from './LogIn';
+import SignUp from './SignUp';
+import Dashboard from './Dashboard';
+import Profile from './Profile';
+import ResetPassword from './ResetPassword';
+import EditPassword from './EditPassword';
+import ResetEmailSent from './ResetEmailSent';
+import ConfirmationEmailSent from './ConfirmationEmailSent';
+import EmailConfirmation from './EmailConfirmation';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useHistory
 } from "react-router-dom";
 
 export default function App() {
   return (
     <Router>
+      <CssBaseline />
+      <Navbar />
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
-          <Route path="/users">
-            <Users />
+           <Route path="/sign_up">
+            <SignUp />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route path="/reset_password">
+            <ResetPassword />
+          </Route>
+          <Route path="/users/password/edit">
+            <EditPassword />
+          </Route>
+          <Route exact path="/">
+            <LogIn />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/reset_email_sent">
+            <ResetEmailSent />
+          </Route>
+          <Route path="/confirmation_email_sent">
+            <ConfirmationEmailSent />
+          </Route>
+          <Route path="/users/confirmation">
+            <EmailConfirmation />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
-
-function Home() {
-  const [message, setMessage] = useState()
-
-  useEffect(() => {
-    fetch('/test')
-      .then(response => response.json())
-      .then(data => setMessage(data.message));
-  }, [message]);
-
-  return (
-    <div className="App">
-      <p>{message}</p>
-    </div>
-  );
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
