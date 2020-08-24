@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import SnackBar from '@material-ui/core/SnackBar';
+import Snackbar from '@material-ui/core/Snackbar';
 import useUser from './use-user';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +32,7 @@ function LogIn() {
   const location = useLocation();
   const { user, mutate } = useUser();
   const [error, setError] = useState();
-  const [SnackBarOpen, setSnackBarOpen] = useState(false);
+  const [SnackbarOpen, setSnackbarOpen] = useState(false);
   const message = queryString.parse(location.search).message;
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function LogIn() {
 
   useEffect(() => {
     if (message) {
-      setSnackBarOpen(true)
+      setSnackbarOpen(true)
     }
   }, [])
 
@@ -59,7 +59,7 @@ function LogIn() {
   }
 
   function handleSnackbarClose() {
-    setSnackBarOpen(false);
+    setSnackbarOpen(false);
   }
 
   return (
@@ -106,7 +106,7 @@ function LogIn() {
           </Grid>
         </form>
       </div>
-      <SnackBar message={message} open={SnackBarOpen} onClose={handleSnackbarClose} />
+      <Snackbar message={message} open={SnackbarOpen} onClose={handleSnackbarClose} />
     </Container>
     
   );
