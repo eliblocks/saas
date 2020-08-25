@@ -9,7 +9,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import useUser from './use-user';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -27,14 +26,7 @@ export default function ResetPassword() {
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
   const history = useHistory();
-  const { user, mutate } = useUser();
   const [emailError, setEmailError] = useState(false);
-
-  useEffect(() => {
-    if (user) {
-      history.push('/dashboard')
-    }
-  })
 
   function onSubmit(data) {
     axios.post('/users/password', {
@@ -43,7 +35,6 @@ export default function ResetPassword() {
       }
     })
     .then(() => {
-      mutate()
       history.push("/reset_email_sent")
     })
     .catch(error => {

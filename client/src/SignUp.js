@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link as RouterLink, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import useUser from './use-user';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
@@ -26,15 +25,8 @@ const useStyles = makeStyles((theme) => ({
 function SignUp() {
   const classes = useStyles();
   const { register, handleSubmit, errors, setError } = useForm();
-  const { user, mutate } = useUser();
   const history = useHistory();
   const [isError, setIsError] = useState();
-
-  useEffect(() => {
-    if (user) {
-      history.push('/dashboard')
-    }
-  }, [user])
 
   function onSubmit(data) {
     axios.post('/users.json', {
@@ -46,7 +38,6 @@ function SignUp() {
     })
     .then(() => {
       history.push('/confirmation_email_sent');
-      mutate();
     })
     .catch(error => {
       console.log(error)

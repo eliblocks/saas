@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import queryString from 'query-string';
-import { Link as RouterLink, useHistory, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -25,16 +25,9 @@ const useStyles = makeStyles((theme) => ({
 export default function EditPassword() {
   const classes = useStyles();
   const [password, setPassword] = useState('');
-  const history = useHistory();
   const location = useLocation();
-  const { user, mutate } = useUser();
+  const { mutate } = useUser();
   const reset_password_token = queryString.parse(location.search).reset_password_token
-
-  useEffect(() => {
-    if (user) {
-      history.push('/dashboard')
-    }
-  })
 
   function handleSubmit(e) {
     e.preventDefault()
