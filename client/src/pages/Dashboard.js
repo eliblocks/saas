@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import useUser from './use-user';
+import useUser from '../hooks/use-user';
 import Profile from './Profile';
 
 function Dashboard() {

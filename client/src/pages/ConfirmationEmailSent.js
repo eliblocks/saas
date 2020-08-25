@@ -1,6 +1,6 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
-import AuthContainer from './AuthContainer';
+import AuthContainer from '../components/AuthContainer';
 
 export default function ConfirmationEmailSent() {
 	return (

@@ -2,17 +2,17 @@ import axios from 'axios';
 import React, { useState, useEffect } from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import useUser from './use-user';
-import Navbar from './Navbar'
-import LogIn from './LogIn';
-import SignUp from './SignUp';
-import Dashboard from './Dashboard';
-import Profile from './Profile';
-import ResetPassword from './ResetPassword';
-import EditPassword from './EditPassword';
-import ResetEmailSent from './ResetEmailSent';
-import ConfirmationEmailSent from './ConfirmationEmailSent';
-import EmailConfirmation from './EmailConfirmation';
+import useUser from './hooks/use-user';
+import Navbar from './components/Navbar'
+import LogIn from './pages/LogIn';
+import SignUp from './pages/SignUp';
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+import ResetPassword from './pages/ResetPassword';
+import EditPassword from './pages/EditPassword';
+import ResetEmailSent from './pages/ResetEmailSent';
+import ConfirmationEmailSent from './pages/ConfirmationEmailSent';
+import EmailConfirmation from './pages/EmailConfirmation';
 
 import {
   BrowserRouter as Router,

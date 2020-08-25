@@ -7,8 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
-import useUser from './use-user';
-import AuthContainer from './AuthContainer';
+import useUser from '../hooks/use-user';
+import AuthContainer from '../components/AuthContainer';
 
 const useStyles = makeStyles((theme) => ({
   submit: {

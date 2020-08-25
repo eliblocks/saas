@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useHistory, useLocation } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-import AuthContainer from './AuthContainer';
+import AuthContainer from '../components/AuthContainer';
 
 export default function EmailConfirmation() {
 	const location = useLocation();

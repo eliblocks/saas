@@ -11,8 +11,8 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import Snackbar from '@material-ui/core/Snackbar';
-import useUser from './use-user';
-import AuthContainer from './AuthContainer';
+import useUser from '../hooks/use-user';
+import AuthContainer from '../components/AuthContainer';
 
 const useStyles = makeStyles((theme) => ({
   submit: {
