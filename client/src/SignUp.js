@@ -5,18 +5,12 @@ import { useForm } from 'react-hook-form';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import AuthContainer from './AuthContainer';
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
@@ -56,63 +50,61 @@ function SignUp() {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <h2>Sign up</h2>
-        {isError && <Typography color='secondary'>Signup failed</Typography>}
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <TextField
-            error={!!errors.full_name}
-            helperText={errors.full_name?.message}
-            inputRef={register}
-            autoFocus
-            fullWidth
-            margin="normal"
-            label="Full name"
-            name="full_name"
-            type="text"
-            placeholder="John Smith"
-          />
-          <TextField
-            error={!!errors.email}
-            helperText={errors.email?.message}
-            inputRef={register}
-            autoFocus
-            fullWidth
-            margin="normal"
-            label="Email"
-            name="email"
-            type="email"
-            placeholder="user@saas.com"
-          />
-          <TextField
-            error={!!errors.password}
-            helperText={errors.password?.message}
-            inputRef={register}
-            fullWidth
-            margin="normal"
-            label="Password"
-            name="password"
-            type="password"
-            placeholder="**********"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            className={classes.submit}
-            variant='contained'
-            color='primary'
-          >
-            Sign up
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link to="/" component={RouterLink}>Already have an account? Log in</Link>
-            </Grid>
+    <AuthContainer>
+      <h2>Sign up</h2>
+      {isError && <Typography color='secondary'>Signup failed</Typography>}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <TextField
+          error={!!errors.full_name}
+          helperText={errors.full_name?.message}
+          inputRef={register}
+          autoFocus
+          fullWidth
+          margin="normal"
+          label="Full name"
+          name="full_name"
+          type="text"
+          placeholder="John Smith"
+        />
+        <TextField
+          error={!!errors.email}
+          helperText={errors.email?.message}
+          inputRef={register}
+          autoFocus
+          fullWidth
+          margin="normal"
+          label="Email"
+          name="email"
+          type="email"
+          placeholder="user@saas.com"
+        />
+        <TextField
+          error={!!errors.password}
+          helperText={errors.password?.message}
+          inputRef={register}
+          fullWidth
+          margin="normal"
+          label="Password"
+          name="password"
+          type="password"
+          placeholder="**********"
+        />
+        <Button
+          type="submit"
+          fullWidth
+          className={classes.submit}
+          variant='contained'
+          color='primary'
+        >
+          Sign up
+        </Button>
+        <Grid container justify="flex-end">
+          <Grid item>
+            <Link to="/" component={RouterLink}>Already have an account? Log in</Link>
           </Grid>
-        </form>
-      </div>
-    </Container>
+        </Grid>
+      </form>
+    </AuthContainer>
   );
 }
 

@@ -3,20 +3,14 @@ import axios from 'axios';
 import queryString from 'query-string';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import useUser from './use-user';
+import AuthContainer from './AuthContainer';
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
@@ -38,39 +32,37 @@ export default function EditPassword() {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <h2>Reset password</h2>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            autoFocus
-            fullWidth
-            margin="normal"
-            label="Password"
-            type="password"
-            placeholder="********"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button
-            type="submit"
-            fullWidth
-            className={classes.submit}
-            variant='contained'
-            color='primary'
-          >
-            Reset Password
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link to="/sign_up" component={RouterLink}>Sign up</Link>
-            </Grid>
-            <Grid item>
-              <Link to="" component={RouterLink}>Log in</Link>
-            </Grid>
+    <AuthContainer component="main" maxWidth="xs">
+      <h2>Reset password</h2>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          autoFocus
+          fullWidth
+          margin="normal"
+          label="Password"
+          type="password"
+          placeholder="********"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button
+          type="submit"
+          fullWidth
+          className={classes.submit}
+          variant='contained'
+          color='primary'
+        >
+          Reset Password
+        </Button>
+        <Grid container>
+          <Grid item xs>
+            <Link to="/sign_up" component={RouterLink}>Sign up</Link>
           </Grid>
-        </form>
-      </div>
-    </Container>
+          <Grid item>
+            <Link to="" component={RouterLink}>Log in</Link>
+          </Grid>
+        </Grid>
+      </form>
+    </AuthContainer>
   );
 }

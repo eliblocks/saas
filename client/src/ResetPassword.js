@@ -3,20 +3,14 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link as RouterLink, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+import AuthContainer from './AuthContainer';
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
@@ -45,40 +39,38 @@ export default function ResetPassword() {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <h2>Forgot your password?</h2>
-        {emailError && <Typography color='secondary'>Email not found</Typography>}
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <TextField
-            name="email"
-            inputRef={register}
-            autoFocus
-            fullWidth
-            margin="normal"
-            label="Email"
-            type="email"
-            placeholder="user@saas.com"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            className={classes.submit}
-            variant='contained'
-            color='primary'
-          >
-            Send me reset password instructions
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link to="/sign_up" component={RouterLink}>Sign up</Link>
-            </Grid>
-            <Grid item>
-              <Link to="" component={RouterLink}>Log in</Link>
-            </Grid>
+    <AuthContainer maxWidth="xs">
+      <h2>Forgot your password?</h2>
+      {emailError && <Typography color='secondary'>Email not found</Typography>}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <TextField
+          name="email"
+          inputRef={register}
+          autoFocus
+          fullWidth
+          margin="normal"
+          label="Email"
+          type="email"
+          placeholder="user@saas.com"
+        />
+        <Button
+          type="submit"
+          fullWidth
+          className={classes.submit}
+          variant='contained'
+          color='primary'
+        >
+          Send me reset password instructions
+        </Button>
+        <Grid container>
+          <Grid item xs>
+            <Link to="/sign_up" component={RouterLink}>Sign up</Link>
           </Grid>
-        </form>
-      </div>
-    </Container>
+          <Grid item>
+            <Link to="" component={RouterLink}>Log in</Link>
+          </Grid>
+        </Grid>
+      </form>
+    </AuthContainer>
   );
 }
