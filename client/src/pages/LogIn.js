@@ -4,7 +4,6 @@ import queryString from 'query-string';
 import { useForm } from 'react-hook-form';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -24,7 +23,7 @@ function LogIn() {
   const classes = useStyles();
   const { register, handleSubmit } = useForm();
   const location = useLocation();
-  const { user, mutate } = useUser();
+  const { mutate } = useUser();
   const [error, setError] = useState();
   const [SnackbarOpen, setSnackbarOpen] = useState(false);
   const message = queryString.parse(location.search).message;
@@ -33,7 +32,7 @@ function LogIn() {
     if (message) {
       setSnackbarOpen(true)
     }
-  }, [])
+  }, [message])
 
   function onSubmit(data) {
     axios.post('/users/sign_in', {

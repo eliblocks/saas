@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import useUser from '../hooks/use-user';
-import Profile from './Profile';
 
 function Dashboard() {
   const { mutate } = useUser();
@@ -21,7 +20,7 @@ function Dashboard() {
     <div>
       <p>{message}</p>
       <br />
-      <a href="" onClick={logOut}>Log Out</a>
+      <button onClick={logOut}>Log Out</button>
     </div>
   );
 }

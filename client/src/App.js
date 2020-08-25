@@ -1,7 +1,6 @@
 import axios from 'axios';
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
 import useUser from './hooks/use-user';
 import Navbar from './components/Navbar'
 import LogIn from './pages/LogIn';
@@ -18,16 +17,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
-  useHistory
 } from "react-router-dom";
 
 export default function App() {
   axios.defaults.headers.common['Content-Type'] = 'application/json';
   axios.defaults.headers.common['Accept'] = 'application/json';
 
-  const { user, loading, mutate } = useUser();
+  const { user, loading } = useUser();
   if (loading) { return "loading"}
 
   return (

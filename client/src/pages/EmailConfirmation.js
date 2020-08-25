@@ -21,7 +21,7 @@ export default function EmailConfirmation() {
 				setError(`Confirmation token ${errorData.confirmation_token}`)
 			}
 		});
-	}, []);
+	}, [history, location.search]);
 
 	return (
 	  <AuthContainer maxWidth="sm">
